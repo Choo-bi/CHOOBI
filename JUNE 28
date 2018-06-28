@@ -1,0 +1,36 @@
+1. 이전에 빈 목록을 만들었으니 올바른 bucket찾기
+
+일단 버킷 목록 출력함수를 이용해 목록수 출력
+hash_string( keyword, nbucket )
+
+
+'이전에 배운 함수'
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+keyword(stirng) 그리고 다수의 버킷을 입력하고,
+해당 keyword에 대한 버킷을 나타내는 숫자를 출력하는 함수만들기
+
+
+def hash-string(keyword, buckets):
+    h = 0
+    for c in keyword:
+        h = (h + ord(c))% buckets
+    return h 
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+1-2. 키워드에 작동할 수 있는 버킷을 출력하는 함수
+
+def hashtable_get_bucket( htable, key ) :
+     return htable[ hash_string(key,len(htable)) ]
+
+2. 올바른 버킷을 찾는 방법을 알아냈으니
+추가 프로시저 정의 방법을 알아보자.
+
+-- 새 항목 추가(버켓에 이미 존재해도됨)
+
+def hashtable_add( htable, key, value ):
+     bucket = hashtable_get_bucket(htable, key)      <<< 올바른 양동이를 먼저 찾기(테이블과 열쇠를 먼저 통과시키기)가변 버킷이라고 함.
+     bucket .append( [key,value] )             <<< 새 키 값 쌍을 추가
+     
+
+아
+대가리아파
