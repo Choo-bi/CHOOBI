@@ -1,0 +1,51 @@
+*** lookup(검색)알아보기
+
+def hashtable_lookup(htable,key):
+     bucket = hashtable_get_bucket(hatable,key)    <<= 버킷찾기
+     for entry in bucket:         <= 조회를 하기위해 해당버킷의 모든항목과 키와 일치하는 항목 찾기
+          if entry[0] == key:
+             return entry[1]       <= 키워드가 일치할때 원하는 값(url)을 받기 
+          return None          <=  아닐때 출력x
+
+
+*** hashtable_update(htable, key, value)정의해보기
+
+이 프로시저가 하는 일은?
+1. 기존 키와 연관된 값을 업데이트하기
+2. 해당 키가 없다면 새 항목 추가하기
+ 
+def hashtable_update(htable, key, value):
+     bucket = hashtable_get_bucket(hatable,key)        <=  버킷찾기
+     for entry in bucket:
+          if entry[0] == key:
+             entry[1] = value
+             return              <= 업데이트하기
+      bucket.append([key, value])      <= 새항목 추가
+
+*** Dictionary에 대해 알아보기
+배워왓던 유형 두가지를 정리해보면
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+1. String 
+=> 'hello'  << 일련의 문자(immutable, 바꿀수 없었음)
+
+2. List
+=> ['a', 2]  << 모든 값의 요소 목록(mutable, 얼마든지 수정하고 추가할 수 있었음)
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+Dictionary
+=> {'hydrogen' : 1, 'helium' : 2}  << 키 값 쌍의 집합(해시테이블과 같음)
+>>> 키를 찾아 값을 얻을 수 있음.
+사전은 새 키 값쌍을 추가할 수 있고 변경도 가능(mutable)
+
+*** Dictionary 만들어보기
+
+elements = { 'hydrogen' : 1, 'helium' : 2, 'carbon' : 6 }
+print elements['hydrogen']
+>> 1
+print 'lithium' in elements
+>> false          <= 사전에 없으므로 false로 평가 있다면 true가 출력됨
+elements['lithium'] = 3
+print elements['lithium']
+>> 3             <= 추가됨
+elements['lithium'] = 4
+print elements['lithium']
+>> 4              <= 수정도 가능함
