@@ -1,0 +1,23 @@
+머신러닝 단기 집중과정 실습에서 자주 이용되는 초매개변수
+
+-steps : 총 학습 반복 횟수. 
+한 단계에서 한 단계에서 한 배치의 손실을 계산한 후, 이값을 사용하여 모델의 가중치를 한번 수정한다.
+
+-batch size : 하나의 단계와 관련된 예시의 수(임의로 선택됨). 
+예를들어 SGD의 batch size는 1
+
+다음과 같은 수식이 적용됨
+(total number of trained examples) = (batch size) * (steps)
+
+머신러닝 단기 집중과정 실습에서 편리하게 사용할 수 있는 변수
+
+periods : 보고의 세부사항을 제어함. 
+예를 들어 periods 가 7로 설정되고 steps가 70으로 설정되면 실습에서 10단계마다(또는 7번) 손실 값을 출력.  << ??
+초매개변수와 달리 periods 값은 수정하지 않아도 됨. 
+periods를 수정해도 모델이 학습하는 내용은 변경되지 않음.
+
+다음과 같은 수식이 적용됨
+(number of training examples in each period) = {(batch size) * (steps)} / (periods)
+
+
+오늘 TIL은 저번꺼 동영상 자료 정리된거 다시 보느라 적을게 적다. 
