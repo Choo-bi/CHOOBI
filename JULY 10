@@ -1,0 +1,33 @@
+세상에서 가장 긴 단어는 앞으로 계속 만들어진다? (BNF 문법규칙)
+
+counter정보에 의해 단어에 뜻이 더해진다.
+어떤식으로?
+
+Word -> Counter - Word
+
+counter - intelligence ex) 낮은 지능
+
+counter - counter - intelligence ex) 쓸떼없는 낮은 지능
+.
+.
+.
+이렇게 단어앞에 counter가 계속 덧붙여져 단어가 길게 만들어짐
+
+** Recursive Definitions (재귀적 단어 정의)
+이러한 단어를 사용한 예에서는 두개의 규칙이 있다.
+
+1. 생각할수 있는 기본사례 (Base case) - 시작점
+(그것의 관점에서 정의되어선 안되고 우리는 그것의 해답을 이미 알고 잇어야한다.)
+
+2.  재귀적 사례이다. (그 자체로 정의되어야한다.)
+
+>> 이거 먼 개솔인지 몰겟다.
+
+** Defining Procedures Recursively
+ex)
+
+factorial(n) = n * (n-1) * (n-2) .... *1
+
+factorial(0) = 1     (Base case)
+factorial(n) = n * factorial(n-1)    (Recursive Case)
+(n>0)
