@@ -1,0 +1,38 @@
+** 회문 만들기
+
+* 재귀적 방법
+def is_palindrome(s):
+''(Base case)
+'''입력값이 빈 칸일 때
+     if s =='':
+       return True
+''(Recursive definition)
+''' 한 문자와 대응되는 문자가 같은지 확인 하는것을 반복하기
+     else:
+          if s[0] == s[-1]:
+             return is_palindrome(s[1:-1])
+          else:
+              return False
+
+>> 이거 IQ테스트같해;; ㅈㄴ 사고력요구
+
+* 비재귀적 방법
+
+def iter_palindrome(s):
+     for i in range(0, len(s) / 2):  <-  입력된 문자에서 0부터 절반지점까지
+         if s[i] != s[-(i + 1)]:    < - 서로 대응되는 문자가 같은지 확인
+            return False
+      return True
+-------------------------------------------
+range함수(까먹어서 다시 찾아씀)
+
+range(10)은 0부터 10 미만의 숫자를 포함하는 range 객체를 만들어 준다.
+시작 숫자와 끝 숫자를 지정하려면 range(시작 숫자, 끝 숫자) 형태를 사용한다. (이때 끝 숫자는 포함되지 않는다)
+
+예시)
+sum = 0 
+for i in range(1, 11): 
+    sum = sum + i 
+ 
+>>> print(sum)
+55
