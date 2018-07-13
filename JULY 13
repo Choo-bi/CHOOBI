@@ -1,0 +1,36 @@
+피보나치 수열
+
+*(base case)
+
+fibonacci(0) = 0
+fibonacci(1) = 1
+
+*재귀적 정의
+
+fibonacci(n) = fibonacci(n-1) + fibonacci(n-2)
+ 
+def fibonacci(n) : 
+     if n == 0:
+         return 0 
+     if n == 1:
+         return 1
+     return fibonacci(n-1) + fibonacci(n-2)     << range 쓰고 for 쓰고 개지랄햇는데 이거보고 ㄹㅇ 신기
+
+위 정의로 fibonacci(2) 계산이 가능하며 이를 이용해 fibonacci(3)도 출력하는 식으로
+큰 수의 피보나치를 출력시킬 수 있다.
+
+비재귀적 방법
+def fibonacci(n):
+
+    a = 0
+
+    b = 1
+
+    for i in range(0, n):
+
+        a , b = b , a + b         << a는 우항 b에 해당하고 b는 우항 a + b에 해당된다.
+                                           (이런 식 나열이 가능하다는 거 알아놓자)
+    return a
+
+print fibonacci(5)
+>> 5
