@@ -1,0 +1,31 @@
+어떠한 사람이 받은 신호를 인기도로 하여 수학적 관계로 나타내면
+popularity (p) = SIGMA popularity(f)
+
+프로시져로 나타내면
+def popularity(p):
+     score = 0
+     for f in friends(p):
+          score = score + popularity(f)
+     return score
+이 프로시져가 바람직한 재귀적 정의가 아닌 이유는 뭘까?
+
+기본 경우(base case)가 없기 때문이다. << 가장 기본적인 이유였음...
+
+그럼 base case를 인기가 하나인경우로 정의하여
+popularity (0, p) = 1  << 여기서 0은 time step(시도한 횟수)로 하자
+
+그래서
+if t == 0 :
+  return 1
+이라는 base case를 기존 프로시져에 삽입해 재귀적 정의 가능.
+
+그러므로 인기도를 프로시져로 다시 정의하면
+
+def popularity(p) : 
+     if t == 0 : 
+        return 1
+     else: 
+        score = 0
+        for f in friend(p):           
+             score = score + popularity( t-1 , f )    << 어떻게 작동하는지 잘 이해안됨.. 나중에 회의할때 질문해보겠음.
+         return score
