@@ -1,0 +1,56 @@
+* problem set
+
+Rabbits Multiplying
+
+규칙
+rabbits(n) = rabbits(n-1) + rabbits(n-2) - rabbits(n-5)
+
+n = months 
+
+그럼 n = 5 이하 까지 rabbits(n)을 정의
+
+rabbits(0) = 0
+rabbits(1) = 1
+rabbits(2) = 1
+if n < 5 :
+ return  rabbits(n-1) + rabbits(n-2)  
+그리고 나서 재귀적 정의
+else:
+ return  rabbits(n-1) + rabbits(n-2) - rabbits(n-5)
+
+이라고했으나 틀림 샤발 몇번 하다 멘탈 나가서 답봄
+
+답은
+if n < 1:
+   return 0
+else :
+     if n ==1 or n==2:
+        return 1
+     else:
+        return rabbits(n-1) + rabbits(n-2) - rabbits(n-5)
+
+spreading Udaciousness
+
+# 0 more needed, since n already exceeds target
+
+#print hexes_to_udaciousness(100000, 2, 36230) 
+
+#>>> 0
+
+
+# after 1 hexamester, there will be 50000 + (50000 * 2) Udacians
+
+#print hexes_to_udaciousness(50000, 2, 150000) 
+
+#>>> 1 
+첨에 설명 읽다가 이해안되서 ㅈㄹ하다가 이거 보고 대충 코드 짜봣는데 맞힘.
+def hexes_to_udaciousness(n, spread, target):
+
+
+    if n > target:
+
+        return 0
+
+    else:
+
+        return 1 + hexes_to_udacitousness(n + n*spread, spread, target)
