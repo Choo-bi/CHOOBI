@@ -1,0 +1,31 @@
+Deep count
+
+[1, [1, 2, [3, 4] ] ]
+
+print deep_count([1, [1, 2, [3, 4] ] ]): 
+
+>> 7
+
+def deep_count(p):
+     sum = 0
+     for e in p:
+         sum = sum + 1 
+         
+라고 했으나 틀림. 솔직히 그 뒤로 뭘해야하는지 잘 모르겟음.
+
+일단 이 코드가 틀리지는 않았으나 코드 뒤에
+
+         if is_list(e):
+            sum = sum + deep_count(e)
+      return sum
+을 추가 시켜야함 근데 이게 어떻게 돌아가는지 잘 이해가 안감..
+
+def is_list(p):
+
+    return isinstance(p, list)
+이게 무엇을 뜻하는지 알아야할듯.
+
+problem set 존나 어렵네 샤발!
+
+그리고 다음 문제 풀다가 멘탈 아작나서 lesson 26으로 넘어와 주구장창 영상만 보다 끝남..
+마치 강연 같았음. 그래서 오늘 적을건 별로 없었
