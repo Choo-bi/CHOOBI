@@ -1,0 +1,42 @@
+The Front-End revolves around three technologies :
+
+- HTML 
+- CSS
+- Javascript
+
+The Front-End는 항상 이 세가지 기술을 이용함.
+--------------------------------------------------------------------
+* HTML - HyperText Markup Language
+
+모든 웹사이트는 HTML을 가지고있다. 그리고 이것은 페이지의 기본 구조형태 이다.
+
+그리고 우리는 그 구조를 오른쪽클릭으로 "View Page Source" 통해 볼 수 있다고 함.
+
+
+** CSS - Cascading Style Sheets
+
+CSS는 웹사이트의 스타일링이다.
+
+컬러, 폰트, 경계 기타 등등의 것들은 CSS에의해 정의 되있다고함.
+
+CSS는 필수적이진 않지만 모든 사이트가 가진 기술이라고 한다. (거의 필수)
+
+
+*** Javascript
+
+Javascript는 개발자가 프로그래밍으로 웹사이트에 상호 작용성을 추가해줄 수있다고함.
+
+어떤 방식이든 간에 상호작용기능이 있는 사이트는 Javascript를 사용한다고함 사용하지 않으면 정적인 형태가 되기때문임.
+--------------------------------------------------------------------
+
+The Back-End of a site has three componets:
+
+- The Language (많은 언어가 이용가능하지만 이 강의에선 Python을 이용한다함 밑에도같음)
+- The Framework (Django)
+- The Database (SQLite)
+
+*Python은 배우기에 좋은 언어이고 심플하고 영향력있고 많은 라이브러리가 있다고함.
+
+*Django는 가장 대중적인 Python을 위한 framework이고 이건 빠르고 안전하며 확장성 있다고함.
+
+*SQLite는 Django와 Python과 함께 사용하면 쉽게 선택할수 있다고 함.
