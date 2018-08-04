@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>chicken mukgosipda</title>
+  </head>
+  <body>
+    <!-- anything here is a comment dada-->
+    <!-- adlkfjadlkjfljclvkadlfka;ndfaldf-->
+
+    
+  </body>
+</html>
+
+이렇게 해서 주소 복사해서 크롬브라우저에 붙여넣어서
+들가봣는데 타이틀이 안뜨네 먼가 문제잇나 계속 해봐도 안되..
+
+---------------------------------------------------
+** 헤딩태그 
+<body>
+
+    <h1>This is bbak1</h1>
+    <h2>This is ddafkldlkafj2</h2>   (헤딩 숫자가 커질수록 점점 글씨가 작게 출력되는거같음.)
+</body>
+
+이것들도 출력이 안됨 먼가 문제잇는듯.
+
+* paragraph (글씨크기는 똑같이 출력되는거 빼곤 헤딩태그랑 별 다른 바 없어보임.)
+
+<p>This is a paragraph</p> (</p>가 Endline의 역할을 하는듯함)
+
+<p><b>This is a paragraph</b></p> 는 기존 <p></p>보다 글씨를 굵게함.
+ 
+<p><strong></strong></p>도 위와 똑같이 굵게나옴.
+
+<p><i>This is a paragraph</i></p> 는 기존 <p></p>의 문장을 기울게함.
