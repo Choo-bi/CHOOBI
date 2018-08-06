@@ -1,0 +1,43 @@
+ol : ordered lists (리스트 나열할때 쓰는거같음)
+
+li : list item (말그대로 리스트 아이템)
+ 
+-----------------------------------
+    <h1>List</h1>
+    <ol>
+      <li>First Item</li>
+      <li>Second Item</li>
+      <li>Third Item</li>
+    </ol>
+------------------------------------
+이와 같이 ol안에 li를 활용해 코드를 짜면 사이트에
+
+먼저 크게 List가 찍히고
+
+1. First Item
+2. Second Item
+3. Third Item 
+
+이렇게 숫자로 찍힌걸 볼 수 있다.
+
+그런데
+<ol> 대신 <ul> 을 쓰면
+숫자 대신 까맣게 꽉찬 점이 찍히는 걸 볼 수 있다.
+
+글고 <ol>안에 <ul>을 쓰면 까만 빈 점으로 심볼이 나타남.
+<ul>안에 <ol>을 쓸수있으나 그대로 숫자가 찍힘.
+
+=================================
+
+**DIV 태그
+  <h1>Divs and Spans</h1>
+
+    <div class="groupone">
+      <h1>Group One</h1>
+      <p>I want to <span>be together in</span> group one</p>  
+    </div>
+
+이와 같이 하면 
+<h1> Group One<h1>
+<p>I want to be together in group one</p>  
+과 다를빠 없지만 나중에 스타일과 관련해 div와 span의 차이를 배울 수 있다고함.
