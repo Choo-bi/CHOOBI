@@ -1,0 +1,62 @@
+------- 빈도 값 계산하는 프로그램 -------
+
+#include <stdio.h>
+#define SIZE 101
+
+int main(void)
+{
+	int freq[SIZE];
+	int i,score;
+
+	for (i = 0; i < SIZE; i++)   // 인덱스 초기화
+	{
+		freq[i] = 0;
+	}
+	while (1)
+	{
+		printf("숫자를 입력하시오(종료는 -1) : ");
+		scanf_s("%d", &score); 
+
+		if (score < 0)
+			break;
+
+		freq[score]++;   //입력 값에 해당하는 인덱스 빈도 계산
+		
+	}
+	printf("값    빈도\n");  // 빈도 값 출력
+	for (i = 0; i < SIZE; i++)
+	{
+		printf("%3d   %3d\n", i,freq[i]);
+	}
+	/* for (i = 0; i < SIZE; i++)  // 막대그래프 형식으로 출력
+	{
+		printf("%3d ", i);
+		for (j = 0; j < freq[i]; j++) 
+			printf("*");
+		printf("\n");
+	}*/
+
+	return 0;
+}
+
+------- 인덱스 순서를 거꾸로 전환하는 프로그램 -------
+
+#include <stdio.h>
+#define SIZE 9
+
+int main(void)
+{
+	int score[SIZE] = { 48, 95, 70, 94, 88, 99, 73, 99, 100 };
+	int i,tmp;
+
+	for (i = 0; i < SIZE/2; i++) // 인덱스값 교환
+	{
+		tmp = score[i];  // 본래 인덱스 값 일시 보류
+		score[i] = score[8 - i];  // 대응 인덱스와 교환
+		score[8-i] = tmp;  // 보류값을 입력
+	}
+	for (i = 0; i < 9; i++)   // 교환된 인덱스 출력
+		printf("score[%d] = %d \n",i, score[i]);
+	
+	return 0;
+} 
