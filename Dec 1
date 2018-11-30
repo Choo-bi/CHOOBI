@@ -1,0 +1,152 @@
+매개 변수도 일종의 지역 변수
+함수를 호출할 때 넣어주는 인수 값으로 초기화
+
+int inc(int counter)   
+{
+	...
+}
+에서 counter가 지역변수라고 함.
+-----------------------------------
+int inc(int counter)
+{
+	int x = 0;
+	...
+}
+int sub2()                         // 이름이 같아도 각각 다른 변수로 본다.
+{
+	int x = 0;
+	...
+}
+-----------------------------------
+전역 변수(global variable): 함수의 외부에 선언되는 변수
+
+초기값을 주지 않으면 0임.
+ex)  
+-----------------------------------
+#include <stdio.h> 
+int counter;        // 전역 변수 
+
+void set_counter(int i) 
+{ 
+        counter = i;         // 직접 사용 가능 
+} 
+int main(void) 
+{ 
+        printf("counter=%d\n", counter); 
+
+        counter = 100;               // 직접 사용 가능 
+        printf("counter=%d\n", counter); 
+
+        set_counter(20);             
+        printf("counter=%d\n", counter); 
+
+        return 0; 
+} 
+-----------------------------------
+** static 지정자
+
+정적 변수 : 블록에서만 사용되지만 블록을 벗어나도 자동으로 삭제되지 않는 변수
+앞에 static을 붙임.
+ex) 
+-----------------------------------
+
+void sub()
+{
+	static int count;    // 정적변수
+	….
+}
+-----------------------------------
+#include <stdio.h>
+
+void sub(void)
+{
+	int count = 0;
+	static int static_count = 0;
+	count++;
+	static_count++;
+	printf("count=%d\n", count);
+	printf("static_count=%d\n", static_count);
+}
+
+int main(void)
+{
+	sub();
+	sub();
+	sub();
+	return 0;                  
+}
+/* 출력값들
+count=1
+static_count=1
+count=1
+static_count=2
+count=1
+static_count=3
+이론보단 직접해보는 것이여 */
+-----------------------------------
+&& 변수의 생존기간 &&
+
+* 정적 할당(static allocation): 
+-> 프로그램 실행 시간 동안 계속 유지
+
+* 자동 할당(automatic allocation): 
+-> 블록에 들어갈 때 생성되어 블록에서 나올 때 소멸 
+
+* 생존 기간을 결정하는 요인
+-> 1. 변수가 선언된 위치
+    2. 저장 유형 지정자
+* 저장 유형 지정자
+1. register
+2. static
+3. extern 
+   ...
+
+** 저장 유형 지정자 static
+
+변수를 선언할 때 키워드 static을 붙이면 '정적 변수'가 된다
+
+이 변수는 Data Segment에 생성되며 할당과 제거가 '전역변수'의 성질을 가지게 된다
+프로그램이 종료할 때까지 존속
+(반복되는 함수 호출 상황에서도 값이 유지됨)
+
+정적 전역변수와 정적 지역변수가 있다.
+
+정적 전역변수는 " 선언된 파일 내에서만 유효 "하다.
+(extern으로 다른 파일에서 참조가 불가능하다)
+
+정적 지역변수는 유효범위가 블록이므로 블록 내에서만 사용할 수 있다
+(그러나 블록을 벗어나도 자동으로 삭제되지 않아 다음에 다시 이 블록에 들어서면 다시 참조할 수 있다고 함)
+
+** 저장 유형 지정자 register
+
+레지스터(register)에 변수를 저장.
+
+register int i;    // 이런식.
+
+** 저장 유형 지정자 extern
+
+컴파일 과정은 파일마다 별도로 처리된다
+extern은 컴파일러에게 변수가 현재 파일이 아닌 다른 파일에서 선언되었다는 것을 알린다. 
+
+ex)
+파일 1
+--------------
+#include <stdio.h> 
+int all_files;            // 다른 소스 파일에서도 사용할 수 있는 전역 변수 1
+extern void sub();    // 다른 파일에서도 사용할 수 있는 전역 변수(함수) 2
+
+int main(void) 
+{ 
+        sub(); 
+        printf("%d\n", all_files); 
+        return 0; 
+} 
+
+다른 파일 2 
+--------------
+extern int all_files;      // 이 전역변수는 다른 파일에 정의되있음을 컴파일러한테 알림.
+void sub(void) 
+{ 
+        all_files = 10; 
+} 
+// 출력값 10
