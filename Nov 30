@@ -1,0 +1,90 @@
+함수 호출의 괄호 속에 포함시키는 매개변수로 실인수, 실매개 변수라고 한다.
+
+함수 정의에 전달할 데이터 이며,
+함수 호출의 인수는 함수 정의의 매개 변수에 대입된다
+함수는 이러한 데이터를 가지고 작업한다.
+
+ex) 
+int get_max(int x, int y) 라고하면 int x 와 int y 는 매개변수이며,
+
+main 에서 a = get_max(2, 3)에서 2와 3은 인수를 뜻함.
+
+함수는 하나의 반환값만 가진다.
+
+함수를 이용해서 간단하게 입력받은 두 수 중 큰 수를 반환하는 함수를 이용하는 프로그램을 짜봄.  
+
+#include <stdio.h>
+
+int get_max(int x, int y)
+{
+	if (x > y)
+		return x;
+	else 
+		return y;
+}
+
+int main(void)
+{
+	int a, b;
+	printf("두 개의 정수를 입력하시오: ");
+	scanf_s("%d %d", &a, &b);
+
+	printf("두 수 중에서 큰 수는 %d입니다.\n", get_max(a, b));
+
+	return 0;
+}
+
+컴비네이션 함수를 만들어보며 팩토리얼 함수도 함께 만들어봄.
+#include <stdio.h>
+
+int Factorial(int n);             // 함수 원형이라고 컴파일러에게 함수 형식을 먼저 알리는 것
+int Combination(int n, int r);
+
+int main()
+{
+
+	int a, b,c;
+	printf("팩토리얼 대입값 :");
+	scanf_s("%d", &a);
+	printf("컴비 대입값 :");
+	scanf_s("%d%d", &b,&c);
+	printf("팩토리얼 동작실험: %d, 컴비네이션 동작실험: %d", Factorial(a), Combination(b, c));
+
+	return 0;
+}
+
+int Factorial(int n)
+{
+	if (n == 1 || n == 0)
+		return 1;
+	else
+		return n * Factorial(n - 1);    //재귀적 함수 정의
+}
+
+int Combination(int n, int r)
+{
+	return Factorial(n) / (Factorial(n - r) * Factorial(r));
+}
+
+함수 안에서 정의되는 변수는 '지역 변수'라고 불리고, 해당 함수 안에서만 사용이 가능하다. 
+함수의 외부에서 선언되는 변수는 '전역 변수'라고 불린다.
+===========================================
+ex 1) int adfdaf()
+{
+	int i, result = 0;  // 지역변수
+            ...
+}
+===========================================
+ex 2)
+int sub1()
+ ----------------------------------
+ㅣ{                                      ㅣ
+ㅣ	int I;                         l  <-- 지역변수 I 의 유효 범위
+ㅣ	  ..                          ㅣ
+ㅣ}                                      ㅣ
+ ----------------------------------
+void sub2()
+{	
+	printf(“%d \n”, x); 
+}
+===========================================
