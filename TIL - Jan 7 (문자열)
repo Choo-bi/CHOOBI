@@ -1,0 +1,95 @@
+** 다양한 문자열 표현 방법
+
+char str1[20] = "father";
+char str2[20] = { 'f', 'a', 't', 'h', 'e', 'r' };
+char str3[] = "father";
+char *str4 = "father";
+char *str5 = str1;  (배열명과 포인터는 동일하게 취급하는 것은 알고있다.)
+
+Caution) 문자 배열에 문자열은 대입 못 함.
+
+- char 배열에 문자열 리터럴 대입은 불가능하다
+     앞의 예처럼 문자열 리터럴로 초기화는 가능했다
+     대입은 반드시 strcpy()라는 함수를 사용해야 함
+
+ex)
+
+   char str1[7] = "Sunday";
+   char str2[7] = { 'S', 'u', 'n', 'd', 'a', 'y' };
+   char str3[] = "Sunday ";
+   str1 = "Monday"; // INVALID 
+   str2 = "Monday"; // INVALID 
+   str3 = "Monday"; // INVALID 
+
+배열에 문자열 대입 예시)
+
+#include <string.h>
+……
+char s[20];
+strcpy(s, " Christmas");  //곧 알게됨
+
+** 문자열을 문자 포인터로 대입 가능
+  char * 타입의 포인터 변수에는 문자열 리터럴을 대입할 수 있다.
+  strcpy()라는 함수를 사용할 필요가 없다
+
+ex)
+char *str = "Sunday ";
+str = "Monday"; // (O)
+(문자 포인터에는 초기화 후에도 문자열을 다시 대입할 수 있다)
+
+char * 타입의 포인터는 printf에서 %s로 인쇄할 수 있다
+char * 타입의 포인터는 모든 문자열 함수에서 char 배열처럼 취급할 수 있다
+
+(강의 자료로는 이해가 안되서 구글링해서 밑에 보충하겠음)
+
+char 포인터로 문자열 사용
+
+- 문자열은 char 포인터에 대입하면 편하게 다룰 수 있습니다.
+
+ex.
+#include <stdio.h>
+
+int main(void)
+{
+	char *dessert ="apple";
+	printf("오늘의 후식은 %s입니다.\n", dessert);
+
+	dessert = "banana";
+	printf("내일 후식은 %s입니다.\n", dessert);
+
+	return 0;  //왜 나는 에러뜨지
+}
+- %s 변환문자를 통해서 출력이 가능합니다.
+
+- 문자열은 해당 문자열의 첫 문자의 주소를 의미한다. 즉 주소이므로 주소을 담은 변수인 포인터에 대입할 수 있다.
+
+&&확인하기&&
+
+두 선언의 차이점
+char city[] = "London";
+char *city = "London";
+
+첫 번째 선언)
+문자 배열이 선언되고 배열의 각 원소에 'L', 'o', 'n', 'd', 'o', 'n'이 대입된다.
+
+두번째 선언)
+이 문자열은 읽기 전용 메모리에 상수로 저장되고 이 문자열 상수의 주소가 포인터 city에 저장된다
+
+******* 함수를 호출하여 문자열을 인쇄하도록 문자열을 인쇄하는 함수 작성하기.
+
+#include <stdio.h>
+
+void printString(char *str);
+
+int main(void)
+{
+	char str[30] = "Happy birthday to you!";
+
+	printString(str);      // 문자열 넘겨주기
+	return 0;
+}
+
+void printString(char *str)
+{
+	printf("%s", str);
+}
