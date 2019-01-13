@@ -1,0 +1,107 @@
+** 문자열 길이 구하기
+
+#include <stdio.h>
+
+int main(void)
+{
+	char str[30] = "A barking dog never bites";
+	int i = 0;
+
+	while (str[i] != 0)
+		i++;
+
+	printf("문자열\"%s\"의 길이는 %d입니다.\n", str, i);
+
+	return 0;
+}
+
+*** 문자 입출력 라이브러리 ***
+
+int getchar(void)  :  하나의 문자를 읽어서 int로 반환한다.
+
+void putchar(int c)  :  int형 변수c에 저장된 문자를 출력한다.
+
+int getch(void)  :  하나의 문자를 읽어서 반환한다(버퍼를 사용하지 않음).
+
+void putch(int c) : 변수 c에 저장된 문자를 출력한다(버퍼를 사용하지 않음).
+
+scanf("%c", &c) : 하나의 문자를 읽어서 변수 c에 저장된다.
+
+printf("%c", c) : 변수 c에 저장된 문자를 출력한다.
+
+#include <stdio.h> 
+getchar(), putchar()은 scanf(), printf()처럼 stdio.h에서 지원한다.
+
+-> getchar()은 문자 하나를 키보드로부터 프로그램으로 가져오고 putchar()은 문자 하나를 프로그램으로부터 화면으로 내보낸다.
+
+getchar()의 리턴 타입과 putchar()의 매개변수 타입은 char이 아니고 int다.
+
+getchar()는 사용자가 입력 자료의 끝 표시로 CTRL+Z를 입력하면 EOF를 반환한다
+기호 상수 EOF(End of File)는 stdio.h 헤더 파일에 -1로 정의되어 있다
+
+getchar(), putchar()의 사용예)
+
+#include <stdio.h>
+
+int main(void)
+{
+	int c;			// 정수형임에 주의
+
+	while (1)
+	{
+		c = getchar();	  // 문자를 입력 받는다.(버퍼를 사용하므로 엔터 키를 눌려야 입력이 됨.)
+		if (c == 'q')          //  'q'를 EOF로 고치면 Ctrl + Z로 종료가능.
+			break;
+		putchar(c);
+	}
+	return 0;
+}
+결과창
+asd
+asd
+adsasd
+adsasd
+
+&& (확인문제) &&
+최대 25개의 문자를 getchar()로 읽어 배열에 저장하고 입력을 마치면 저장된 문자를 putchar()로 모두 출력하시오.
+(단, 25개 미만이더라도 사용자가 Enter를 치면 입력이 중단되어야 함)
+
+#include <stdio.h>
+
+int main(void)
+{
+	int i, j;
+	int c[25];
+
+	printf("최대 25개 문자를 입력하고 Enter를 누르시오 \n ");
+	for (i = 0; i < 25; i++) 
+	{
+		c[i] = getchar();
+		if (c[i] == '\n')
+		{
+			break;
+		}
+	}
+	putchar('\n');
+	for (j = 0; j <= i; j++)
+		putchar(c[j]);
+	putchar('\n');
+
+	return 0;
+}
+
+&& 또 다른 문자열 라이브러리
+
+*** _getch()
+헤더파일 : <conio.h>
+버퍼 사용여부 : ㄴㄴ
+에코 여부 : ㄴㄴ
+응답성 : 문자단위
+문자수정여부 : ㄴㄴ
+
+***  getche()
+헤더파일 : <conio.h>
+버퍼 사용여부 : ㄴㄴ
+에코 여부 : ㅇㅇ
+응답성 : 문자단위
+문자수정여부 : ㄴㄴ
