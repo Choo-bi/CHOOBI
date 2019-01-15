@@ -1,0 +1,75 @@
+getchar(), _getche(), _getch()의 차이를 한 눈에 볼 수 있는 코드 만들기
+
+#include <conio.h>
+#include <stdio.h>
+
+int main(void) {
+	char ch;
+
+	printf("\n getchar(): 문자를 연속으로 입력하고 Enter를 눌러야 반응 >> ");
+	while ((ch = getchar()) != 'q')
+		putchar(ch);
+
+	printf("\n _getche(): 문자를 누를 때마다 두 번 출력 >> ");
+	while ((ch = _getche()) != 'q')
+		putchar(ch);
+
+	printf("\n _getch(): 문자를 누르면 한 번 출력 >> ");
+	while ((ch = _getch()) != 'q')
+		_putch(ch);
+	return 0;
+}
+
+&& 문자열 입출력 라이브러리 함수 &&
+
+int scanf("%s", s) : 문자열을 읽어서 문자 배열 s[]에 저장
+int printf("%s", s) : 문자 배열 s[]에 저장되어 있는 문자열을 출력한다.
+char *gets(char *s) : 한 줄의 문자열을 읽어서 문자 배열 s[]에 저장한다.
+int puts(const char *s) 배열 s[]에 저장되어 있는 한 줄의 문자열을 출력한다.
+
+** scanf()의 사용법
+char str[10];
+scanf("%s", str);
+
+** scanf()는 한 번에 두 개 이상의 문자열도 받아들일 수 있다.
+char s1[10];
+char s2[10];
+char s3[10];
+scanf("%s%s%s", s1, s2, s3);
+// 사용자가 one two three와 같이 입력하면 s1에는 one이, s2에는 two가, s3에는 three가 할당된다.
+
+***  gets()
+ex) char *gets(char *buffer)
+
+사용자로부터 한 줄을 입력받는다
+표준 입력으로부터 엔터키가 나올 때까지 한 줄의 라인을 입력
+마지막으로 입력된 문자('\n')는  NULL 문자('\0')로 교체되어 buffer가 가리키는 주소에 저장된다. 
+입력 받은 첫 문자의 주소값을 반환한다
+
+***  puts()
+ex) int puts(const char *str)
+
+한 줄의 문자열을 출력한다
+str이 가리키는 문자열을 받아서 화면에 출력
+NULL 문자('\0')는 줄바꿈 문자('\n')로 변경하여 출력
+보통 0을 반환하는데 오류가 발생하면 EOF를 반환한다
+  기호 상수 EOF(End of File)는 stdio.h 헤더 파일에 -1로 정의되어 있다
+  #define EOF 	(-1)
+
+방금 배운걸로이름과 주소를 받는 코드를 작성해보자
+
+#include <stdio.h>
+ 
+int main(void)  {
+       char name[100];
+       char address[100];
+ 
+       printf("이름을 입력하시오: ");
+       gets(name);
+       printf("현재 거주하는 주소를 입력하시오: ");
+       gets(address);
+ 
+       puts(name);
+       puts(address);
+       return 0;
+}
